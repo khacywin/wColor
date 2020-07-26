@@ -1,6 +1,6 @@
 import React from 'react';
 interface Props {
-    onChange?: (value: string) => void;
+    onChange: (value: string) => void;
     defaultValue?: string;
     width?: number;
     height?: number;
