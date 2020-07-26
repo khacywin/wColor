@@ -11,11 +11,21 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup -c"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+git@github.com:khacywin/wcolor.git"
+  },
   "keywords": [
-    "wcolor",
-    "color"
+    "date",
+    "wmtime",
+    "wdate",
+    "khacy"
   ],
-  "author": "khacywin",
+  "author": "khacy",
+  "bugs": {
+    "url": "https://github.com/khacywin/wcolor/issues"
+  },
+  "homepage": "https://github.com/khacywin/wcolor#readme",
   "license": "ISC",
   "peerDependencies": {
     "react": ">=16.8.0",
