@@ -27,9 +27,9 @@ interface PropsMainSelector {
 }
 const MainSelector = styled.div<PropsMainSelector>`
   position: absolute;
+  z-index: 999;
   transform: translate(0, 5px);
   display: ${(props) => (props.show ? 'initial' : 'none')};
-  z-index: 9999;
 `;
 
 interface Props {

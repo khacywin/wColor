@@ -136,11 +136,11 @@ const WColorAdd = styled.label`
   display: block;
   width: 1.4em;
   height: 1.4em;
-  padding: 5px;
   background-color: transparent;
   border: none;
   cursor: pointer;
   position: relative;
+  box-sizing: border-box;
 
   &::before{
     content: '';
