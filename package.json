@@ -1,5 +1,5 @@
 {
-  "name": "wSelectorColor",
+  "name": "wcolor-selector",
   "version": "1.0.0",
   "description": "React component",
   "main": "build/index.js",
