@@ -16,9 +16,10 @@
     "url": "git+git@github.com:khacywin/wcolor.git"
   },
   "keywords": [
-    "date",
+    "color",
+    "wcolor",
     "wmtime",
-    "wdate",
+    "selector",
     "khacy"
   ],
   "author": "khacy",
