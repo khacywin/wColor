@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import Selector from './Selector';
-import _key from './_key';
+import _key from './util/_key';
 
 const MainWrap = styled.div`
   display: block;
@@ -29,6 +29,7 @@ const MainSelector = styled.div<PropsMainSelector>`
   position: absolute;
   transform: translate(0, 5px);
   display: ${(props) => (props.show ? 'initial' : 'none')};
+  z-index: 9999;
 `;
 
 interface Props {

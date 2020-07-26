@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import _t from './../_t';
 import {
   WColor,
   WColorContainer,
@@ -10,7 +9,8 @@ import {
 } from './style';
 import icon_add from './../icons/add.svg';
 import icon_close from './../icons/close.svg';
-import _key from './../_key';
+import _key from './../util/_key';
+import _t from './../util/_t';
 import _Add from './_Add';
 
 interface Props {
@@ -57,9 +57,13 @@ export default React.memo((props: Props) => {
   }
 
   function addColour(color: string) {
-    let _colour: any[] = [...colour, color];
-    setColour(_colour);
-    addToLocalStorage(color);
+    setValue(color);
+    
+    if (template.indexOf(color) < 0 && colour.indexOf(color) < 0) {
+      let _colour: any[] = [...colour, color];
+      setColour(_colour);
+      addToLocalStorage(color);
+    }
   }
 
   function removeInLocalStorage(color: string) {
@@ -90,7 +94,7 @@ export default React.memo((props: Props) => {
         {template.map((color: string, key: any) => (
           <WColorItemWrap key={`${_keyWColor}-template-${key}`}>
             <WColorItem
-              aria-label={_t('Add')}
+              aria-label={color}
               color={color}
               active={color === value}
               onClick={() => setValue(color)}
@@ -101,7 +105,7 @@ export default React.memo((props: Props) => {
         {colour.map((color: string, key: any) => (
           <WColorItemWrap key={`${_keyWColor}-${key}`}>
             <WColorItem
-              aria-label={_t('Add')}
+              aria-label={color}
               color={color}
               active={color === value}
               onClick={() => setValue(color)}
