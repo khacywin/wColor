@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import Selector from './Selector';
 import _key from './util/_key';
+import _t from './util/_t';
+import Selector from './Selector';
 
 const MainWrap = styled.div`
   display: block;
@@ -27,9 +28,10 @@ interface PropsMainSelector {
 }
 const MainSelector = styled.div<PropsMainSelector>`
   position: absolute;
-  z-index: 999;
-  transform: translate(0, 5px);
-  display: ${(props) => (props.show ? 'initial' : 'none')};
+  transition: all 0.1s linear;
+  z-index: ${(props) => (props.show ? '999' : '-1')};
+  opacity: ${(props) => (props.show ? '1' : '0')};
+  transform: ${(props) => props.show ? `translate(0, 5px)` : `translate(0, -5px)`};
 `;
 
 interface Props {
@@ -47,21 +49,22 @@ export default React.memo((props: Props) => {
    */
   function hiddenDropdownWhenClick() {
     setShow(false);
-    document.removeEventListener('dblclick', handleClick);
+    document.removeEventListener('click', handleClick);
   }
 
   /**
    * @param e
    */
   function handleClick(e: any) {
-    let target = e.target;
     let path = e.path;
     let show = false;
-
+    
     path.forEach((item: any) => {
-      refMenu.current.childNodes.forEach((node: any) => {
-        if (node === item) show = true;
-      });
+      if (refMenu.current.childNodes) {
+        refMenu.current.childNodes.forEach((node: any) => {
+          if (node === item) show = true;
+        });
+      }
     });
 
     if (!show) hiddenDropdownWhenClick();
@@ -73,17 +76,17 @@ export default React.memo((props: Props) => {
      * Hidden menu when you click in out of menu
      */
     if (show) {
-      document.addEventListener('dblclick', handleClick);
+      document.addEventListener('click', handleClick);
     }
   });
 
+  function handleChange(color: string) {
+    setValue(color);
+    props.onChange(color);
+  }
+
   return (
     <MainWrap>
-      <input
-        type='hidden'
-        value={value}
-        onChange={(e: any) => props.onChange(e.target.value)}
-      />
       <MainValue
         color={value}
         height={props.height || 30}
@@ -91,7 +94,7 @@ export default React.memo((props: Props) => {
         onClick={() => setShow(!show)}
       />
       <MainSelector ref={refMenu} show={show}>
-        <Selector fnSelected={(color: string) => setValue(color)} />
+        <Selector fnSelected={handleChange} />
       </MainSelector>
     </MainWrap>
   );

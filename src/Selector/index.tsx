@@ -1,27 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import {
-  WColor,
-  WColorContainer,
-  WColorHeading,
-  WColorItemWrap,
-  WColorItem,
-  WColorAdd,
-} from './style';
+import { WColor, WColorAdd, WColorHeading } from './style';
 import icon_add from './../icons/add.svg';
-import icon_close from './../icons/close.svg';
-import _key from './../util/_key';
 import _t from './../util/_t';
-import _Add from './_Add';
+import Container from './_Container';
+import ColorPicker from './_ColorPicker';
 
 interface Props {
   select?: string;
   dark?: boolean;
   fnSelected: (color: string) => void;
 }
+
 export default React.memo((props: Props) => {
-  const _keyWColor = _key();
-  const [value, setValue] = useState(props.select || '#54478c');
-  const [colour, setColour] = useState<any[]>([]);
+  const [hex, setHex] = useState('#866969');
   const template = [
     '#54478c',
     '#2c699a',
@@ -34,6 +25,8 @@ export default React.memo((props: Props) => {
     '#f1c453',
     '#f29e4c',
   ];
+  const [colour, setColour] = useState<any[]>([]);
+  const [value, setValue] = useState(props.select || '#54478c');
 
   useEffect(() => {
     let _colour = [];
@@ -58,7 +51,7 @@ export default React.memo((props: Props) => {
 
   function addColour(color: string) {
     setValue(color);
-    
+
     if (template.indexOf(color) < 0 && colour.indexOf(color) < 0) {
       let _colour: any[] = [...colour, color];
       setColour(_colour);
@@ -87,40 +80,29 @@ export default React.memo((props: Props) => {
     removeInLocalStorage(color);
   }
 
+  function selectColor(color: string) {
+    setValue(color);
+    props.fnSelected(color)
+  }
+
   return (
     <WColor dark={!!props.dark}>
-      <WColorHeading>{_t('Recent')}</WColorHeading>
-      <WColorContainer>
-        {template.map((color: string, key: any) => (
-          <WColorItemWrap key={`${_keyWColor}-template-${key}`}>
-            <WColorItem
-              aria-label={color}
-              color={color}
-              active={color === value}
-              onClick={() => setValue(color)}
-              onDoubleClick={() => removeColour(color)}
-            />
-          </WColorItemWrap>
-        ))}
-        {colour.map((color: string, key: any) => (
-          <WColorItemWrap key={`${_keyWColor}-${key}`}>
-            <WColorItem
-              aria-label={color}
-              color={color}
-              active={color === value}
-              onClick={() => setValue(color)}
-              onDoubleClick={() => removeColour(color)}
-            />
-            <button onClick={() => removeColour(color)} type='button'>
-              <img src={icon_close} alt='w-color' />
-            </button>
-          </WColorItemWrap>
-        ))}
-        <WColorAdd htmlFor={`id-${_keyWColor}-add`}>
+      {/**
+       ** Wrap color picker
+       */}
+      <ColorPicker hex={(color: string) => setHex(color)} />
+      <WColorHeading>
+        {_t('Recent')}{' '}
+        <WColorAdd onClick={() => addColour(hex)}>
           <img src={icon_add} alt='w-color' />
         </WColorAdd>
-        <_Add id={`id-${_keyWColor}-add`} fnAdd={addColour} />
-      </WColorContainer>
+      </WColorHeading>
+      <Container
+        colour={[...template, ...colour]}
+        select={value}
+        fnSelected={selectColor}
+        fnRemove={removeColour}
+      />
     </WColor>
   );
 });

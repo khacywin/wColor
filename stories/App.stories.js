@@ -5,4 +5,4 @@ export default {
   title: 'App',
 };
 
-export const AppComponent = () => <App />;
+export const AppComponent = () => <App onChange={(val) => console.log(val)}/>;
