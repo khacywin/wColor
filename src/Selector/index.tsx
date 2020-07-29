@@ -93,7 +93,7 @@ export default React.memo((props: Props) => {
       <ColorPicker hex={(color: string) => setHex(color)} />
       <WColorHeading>
         {_t('Recent')}{' '}
-        <WColorAdd onClick={() => addColour(hex)}>
+        <WColorAdd type='button' aria-label={_t('Add')} onClick={() => addColour(hex)}>
           <img src={icon_add} alt='w-color' />
         </WColorAdd>
       </WColorHeading>
