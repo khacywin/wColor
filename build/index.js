@@ -478,7 +478,7 @@ var Selector = React__default.memo(function (props) {
         React__default.createElement(WColorHeading, null,
             _t('Recent'),
             ' ',
-            React__default.createElement(WColorAdd, { onClick: function () { return addColour(hex); } },
+            React__default.createElement(WColorAdd, { type: 'button', "aria-label": _t('Add'), onClick: function () { return addColour(hex); } },
                 React__default.createElement("img", { src: img, alt: 'w-color' }))),
         React__default.createElement(Container, { colour: __spreadArrays(template, colour), select: value, fnSelected: selectColor, fnRemove: removeColour })));
 });

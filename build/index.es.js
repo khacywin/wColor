@@ -472,7 +472,7 @@ var Selector = React.memo(function (props) {
         React.createElement(WColorHeading, null,
             _t('Recent'),
             ' ',
-            React.createElement(WColorAdd, { onClick: function () { return addColour(hex); } },
+            React.createElement(WColorAdd, { type: 'button', "aria-label": _t('Add'), onClick: function () { return addColour(hex); } },
                 React.createElement("img", { src: img, alt: 'w-color' }))),
         React.createElement(Container, { colour: __spreadArrays(template, colour), select: value, fnSelected: selectColor, fnRemove: removeColour })));
 });
