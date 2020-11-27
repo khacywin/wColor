@@ -59,9 +59,9 @@ const img$1 = "data:image/svg+xml,%3c%3fxml version='1.0' encoding='utf-8'%3f%3e
 var Container = React.memo(function (props) {
     var _keyWColor = _key();
     return (React.createElement(WColorContainer, null, props.colour.map(function (color, key) { return (React.createElement(WColorItemWrap, { key: _keyWColor + "-" + key },
-        React.createElement(WColorItem, { "aria-label": color, color: color, active: color === props.select, onClick: function () { return props.fnSelected(color); }, onDoubleClick: function () { return props.fnRemove(color); } }),
-        key > 9 ? (React.createElement("button", { onClick: function () { return props.fnRemove(color); }, type: 'button' },
-            React.createElement("img", { src: img$1, alt: 'w-color' }))) : (''))); })));
+        React.createElement(WColorItem, { color: color, active: color === props.select, onClick: function () { return props.fnSelected(color); }, onDoubleClick: function () { return props.fnRemove(color); } }),
+        key > 9 && (React.createElement("button", { onClick: function () { return props.fnRemove(color); }, type: 'button' },
+            React.createElement("img", { src: img$1, alt: 'w-color' }))))); })));
 });
 
 var WColorPicker = styled.div(templateObject_1$2 || (templateObject_1$2 = __makeTemplateObject(["\n  margin: 0 0 0.4em 0;\n  border-bottom: 1px solid #e9e9e9;\n  *{\n    will-change: all;\n  }\n"], ["\n  margin: 0 0 0.4em 0;\n  border-bottom: 1px solid #e9e9e9;\n  *{\n    will-change: all;\n  }\n"])));
@@ -471,8 +471,7 @@ var Selector = React.memo(function (props) {
         React.createElement(ColorPicker, { hex: function (color) { return setHex(color); } }),
         React.createElement(WColorHeading, null,
             _t('Recent'),
-            ' ',
-            React.createElement(WColorAdd, { type: 'button', "aria-label": _t('Add'), onClick: function () { return addColour(hex); } },
+            React.createElement(WColorAdd, { type: 'button', onClick: function () { return addColour(hex); } },
                 React.createElement("img", { src: img, alt: 'w-color' }))),
         React.createElement(Container, { colour: __spreadArrays(template, colour), select: value, fnSelected: selectColor, fnRemove: removeColour })));
 });
