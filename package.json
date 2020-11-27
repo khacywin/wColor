@@ -3,6 +3,7 @@
   "version": "1.2.4",
   "description": "React component",
   "main": "build/index.js",
+  "types": "build/App.d.ts",
   "module": "build/index.es.js",
   "files": [
     "build"
