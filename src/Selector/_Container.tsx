@@ -17,18 +17,15 @@ export default React.memo((props: Props) => {
       {props.colour.map((color: string, key: any) => (
         <StyleContainer.WColorItemWrap key={`${_keyWColor}-${key}`}>
           <StyleContainer.WColorItem
-            aria-label={color}
             color={color}
             active={color === props.select}
             onClick={() => props.fnSelected(color)}
             onDoubleClick={() => props.fnRemove(color)}
           />
-          {key > 9 ? (
+          {key > 9 && (
             <button onClick={() => props.fnRemove(color)} type='button'>
               <img src={icon_close} alt='w-color' />
             </button>
-          ) : (
-            ''
           )}
         </StyleContainer.WColorItemWrap>
       ))}
