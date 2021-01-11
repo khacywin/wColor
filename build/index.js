@@ -1,11 +1,12 @@
 'use strict';
 
-function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
-
 var React = require('react');
-var React__default = _interopDefault(React);
 var styled = require('styled-components');
-var styled__default = _interopDefault(styled);
+
+function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+
+var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
+var styled__default = /*#__PURE__*/_interopDefaultLegacy(styled);
 
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation.
@@ -34,24 +35,24 @@ function __makeTemplateObject(cooked, raw) {
     return cooked;
 }
 
-var WColor = styled__default.div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  position: relative;\n  box-sizing: border-box;\n  border-radius: .5em;\n  width: 15em;\n  padding: .5em;\n  ", "\n"], ["\n  position: relative;\n  box-sizing: border-box;\n  border-radius: .5em;\n  width: 15em;\n  padding: .5em;\n  ",
+var WColor = styled__default['default'].div(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  position: relative;\n  box-sizing: border-box;\n  border-radius: .5em;\n  width: 15em;\n  padding: .5em;\n  ", "\n"], ["\n  position: relative;\n  box-sizing: border-box;\n  border-radius: .5em;\n  width: 15em;\n  padding: .5em;\n  ",
     "\n"])), function (props) { return props.dark ? "\n    background-color: #1a1a1a;\n    color: #fff;\n  " : "\n    background-color: #fff;\n    color: inherit;\n    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.12);\n  "; });
-var WColorHeading = styled__default.div(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  font-size: .8em;\n  text-indent: .3em;\n  position: relative;\n  margin-bottom: 3px;\n"], ["\n  font-size: .8em;\n  text-indent: .3em;\n  position: relative;\n  margin-bottom: 3px;\n"])));
-var WColorAdd = styled__default.button(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  display: block;\n  width: 1.4em;\n  height: 1.4em;\n  background-color: transparent;\n  padding: 0;\n  border: none;\n  cursor: pointer;\n  position: absolute;\n  right: 5px;\n  top: 0;\n  box-sizing: border-box;\n\n  &::before{\n    content: '';\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    background-color: #000;\n    opacity: 0.1;\n    transform: scale(0);\n    transition: transform 0.2s ease-in;\n    top: 0;\n    left: 0;\n    border-radius: 50%;\n  }\n\n  &:hover{\n    &::before{\n      transform: scale(1);\n    }\n  }\n\n  &:focus{\n    outline: 0;\n  }\n\n  img{\n    margin: 20%;\n    width: 60%;\n    height: 60%;\n  }\n"], ["\n  display: block;\n  width: 1.4em;\n  height: 1.4em;\n  background-color: transparent;\n  padding: 0;\n  border: none;\n  cursor: pointer;\n  position: absolute;\n  right: 5px;\n  top: 0;\n  box-sizing: border-box;\n\n  &::before{\n    content: '';\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    background-color: #000;\n    opacity: 0.1;\n    transform: scale(0);\n    transition: transform 0.2s ease-in;\n    top: 0;\n    left: 0;\n    border-radius: 50%;\n  }\n\n  &:hover{\n    &::before{\n      transform: scale(1);\n    }\n  }\n\n  &:focus{\n    outline: 0;\n  }\n\n  img{\n    margin: 20%;\n    width: 60%;\n    height: 60%;\n  }\n"])));
+var WColorHeading = styled__default['default'].div(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  font-size: .8em;\n  text-indent: .3em;\n  position: relative;\n  margin-bottom: 3px;\n"], ["\n  font-size: .8em;\n  text-indent: .3em;\n  position: relative;\n  margin-bottom: 3px;\n"])));
+var WColorAdd = styled__default['default'].button(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  display: block;\n  width: 1.4em;\n  height: 1.4em;\n  background-color: transparent;\n  padding: 0;\n  border: none;\n  cursor: pointer;\n  position: absolute;\n  right: 5px;\n  top: 0;\n  box-sizing: border-box;\n\n  &::before{\n    content: '';\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    background-color: #000;\n    opacity: 0.1;\n    transform: scale(0);\n    transition: transform 0.2s ease-in;\n    top: 0;\n    left: 0;\n    border-radius: 50%;\n  }\n\n  &:hover{\n    &::before{\n      transform: scale(1);\n    }\n  }\n\n  &:focus{\n    outline: 0;\n  }\n\n  img{\n    margin: 20%;\n    width: 60%;\n    height: 60%;\n  }\n"], ["\n  display: block;\n  width: 1.4em;\n  height: 1.4em;\n  background-color: transparent;\n  padding: 0;\n  border: none;\n  cursor: pointer;\n  position: absolute;\n  right: 5px;\n  top: 0;\n  box-sizing: border-box;\n\n  &::before{\n    content: '';\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    background-color: #000;\n    opacity: 0.1;\n    transform: scale(0);\n    transition: transform 0.2s ease-in;\n    top: 0;\n    left: 0;\n    border-radius: 50%;\n  }\n\n  &:hover{\n    &::before{\n      transform: scale(1);\n    }\n  }\n\n  &:focus{\n    outline: 0;\n  }\n\n  img{\n    margin: 20%;\n    width: 60%;\n    height: 60%;\n  }\n"])));
 var templateObject_1, templateObject_2, templateObject_3;
 
-const img = "data:image/svg+xml,%3c%3fxml version='1.0' encoding='iso-8859-1'%3f%3e%3c!-- Generator: Adobe Illustrator 19.0.0%2c SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3e%3csvg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 496 496' style='enable-background:new 0 0 496 496%3b' xml:space='preserve'%3e%3cg%3e %3cg%3e %3cpath d='M488%2c240H256V8c0-4.418-3.582-8-8-8s-8%2c3.582-8%2c8v232H8c-4.418%2c0-8%2c3.582-8%2c8s3.582%2c8%2c8%2c8h232v232c0%2c4.418%2c3.582%2c8%2c8%2c8 s8-3.582%2c8-8V256h232c4.418%2c0%2c8-3.582%2c8-8S492.418%2c240%2c488%2c240z'/%3e %3c/g%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3c/svg%3e";
+var img = "data:image/svg+xml,%3c%3fxml version='1.0' encoding='iso-8859-1'%3f%3e%3c!-- Generator: Adobe Illustrator 19.0.0%2c SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3e%3csvg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 496 496' style='enable-background:new 0 0 496 496%3b' xml:space='preserve'%3e%3cg%3e %3cg%3e %3cpath d='M488%2c240H256V8c0-4.418-3.582-8-8-8s-8%2c3.582-8%2c8v232H8c-4.418%2c0-8%2c3.582-8%2c8s3.582%2c8%2c8%2c8h232v232c0%2c4.418%2c3.582%2c8%2c8%2c8 s8-3.582%2c8-8V256h232c4.418%2c0%2c8-3.582%2c8-8S492.418%2c240%2c488%2c240z'/%3e %3c/g%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3c/svg%3e";
 
 function _t (text, language) {
     return text;
 }
 
-var WColorContainer = styled__default.div(templateObject_1$1 || (templateObject_1$1 = __makeTemplateObject(["\n  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n"], ["\n  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n"])));
+var WColorContainer = styled__default['default'].div(templateObject_1$1 || (templateObject_1$1 = __makeTemplateObject(["\n  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n"], ["\n  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n"])));
 var KeyframesActive = styled.keyframes(templateObject_2$1 || (templateObject_2$1 = __makeTemplateObject(["\n  0%{\n    transform: scale(.6);\n  }\n  20%{\n    transform: scale(.8);\n  }\n  100%{\n    transform: scale(1);\n  }\n"], ["\n  0%{\n    transform: scale(.6);\n  }\n  20%{\n    transform: scale(.8);\n  }\n  100%{\n    transform: scale(1);\n  }\n"])));
 var CSSActive = styled.css(templateObject_3$1 || (templateObject_3$1 = __makeTemplateObject(["\n  &::before{\n    animation: ", " 0.3s linear both;\n  }\n"], ["\n  &::before{\n    animation: ", " 0.3s linear both;\n  }\n"])), KeyframesActive);
 var KeyframesItem = styled.keyframes(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  0%{\n    transform: scale(.2);\n  }\n  70%{\n    transform: scale(.9);\n  }\n  100%{\n    transform: scale(.8);\n  }\n"], ["\n  0%{\n    transform: scale(.2);\n  }\n  70%{\n    transform: scale(.9);\n  }\n  100%{\n    transform: scale(.8);\n  }\n"])));
-var WColorItemWrap = styled__default.div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n  position: relative;\n  width: 1.4em;\n  height: 1.4em;\n  margin: .3em;\n  box-sizing: border-box;\n\n  &:hover button{\n    display: initial;\n  }\n  button{\n    position: absolute;\n    display: none;\n    z-index: 100;\n    top: 0;\n    right: 1px;\n    width: 10px;\n    height: 10px;\n    padding: 0;\n    background-color: #fff;\n    border: none;\n    border-radius: 50%;\n    cursor: pointer;\n\n    &:focus{\n      outline: 0;\n    }\n\n\n    img{\n      transform: translate(0, -2px) scale(.9);\n    }\n  }\n\n"], ["\n  position: relative;\n  width: 1.4em;\n  height: 1.4em;\n  margin: .3em;\n  box-sizing: border-box;\n\n  &:hover button{\n    display: initial;\n  }\n  button{\n    position: absolute;\n    display: none;\n    z-index: 100;\n    top: 0;\n    right: 1px;\n    width: 10px;\n    height: 10px;\n    padding: 0;\n    background-color: #fff;\n    border: none;\n    border-radius: 50%;\n    cursor: pointer;\n\n    &:focus{\n      outline: 0;\n    }\n\n\n    img{\n      transform: translate(0, -2px) scale(.9);\n    }\n  }\n\n"])));
-var WColorItem = styled__default.div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n  position: relative;\n  width: 100%;\n  height: 100%;\n  cursor: pointer;\n  border-radius: 0.4em;\n  background-color: inherit;\n\n  &::before{\n    position: absolute;\n    content: '';\n    border-radius: 0.2em;\n    width: 100%;\n    height: 100%;\n    top:0;\n    left:0;\n    transform: scale(0.8);\n    transition: all 0.2s linear;\n    background-color: ", ";\n    z-index: 10;\n    animation: ", " 0.2s linear;\n  }\n\n  &:hover{\n    &::before{\n      transform: scale(0.9);\n    }\n  }\n  \n  ", "\n"], ["\n  position: relative;\n  width: 100%;\n  height: 100%;\n  cursor: pointer;\n  border-radius: 0.4em;\n  background-color: inherit;\n\n  &::before{\n    position: absolute;\n    content: '';\n    border-radius: 0.2em;\n    width: 100%;\n    height: 100%;\n    top:0;\n    left:0;\n    transform: scale(0.8);\n    transition: all 0.2s linear;\n    background-color: ", ";\n    z-index: 10;\n    animation: ", " 0.2s linear;\n  }\n\n  &:hover{\n    &::before{\n      transform: scale(0.9);\n    }\n  }\n  \n  ",
+var WColorItemWrap = styled__default['default'].div(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n  position: relative;\n  width: 1.4em;\n  height: 1.4em;\n  margin: .3em;\n  box-sizing: border-box;\n\n  &:hover button{\n    display: initial;\n  }\n  button{\n    position: absolute;\n    display: none;\n    z-index: 100;\n    top: 0;\n    right: 1px;\n    width: 10px;\n    height: 10px;\n    padding: 0;\n    background-color: #fff;\n    border: none;\n    border-radius: 50%;\n    cursor: pointer;\n\n    &:focus{\n      outline: 0;\n    }\n\n\n    img{\n      transform: translate(0, -2px) scale(.9);\n    }\n  }\n\n"], ["\n  position: relative;\n  width: 1.4em;\n  height: 1.4em;\n  margin: .3em;\n  box-sizing: border-box;\n\n  &:hover button{\n    display: initial;\n  }\n  button{\n    position: absolute;\n    display: none;\n    z-index: 100;\n    top: 0;\n    right: 1px;\n    width: 10px;\n    height: 10px;\n    padding: 0;\n    background-color: #fff;\n    border: none;\n    border-radius: 50%;\n    cursor: pointer;\n\n    &:focus{\n      outline: 0;\n    }\n\n\n    img{\n      transform: translate(0, -2px) scale(.9);\n    }\n  }\n\n"])));
+var WColorItem = styled__default['default'].div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n  position: relative;\n  width: 100%;\n  height: 100%;\n  cursor: pointer;\n  border-radius: 0.4em;\n  background-color: inherit;\n\n  &::before{\n    position: absolute;\n    content: '';\n    border-radius: 0.2em;\n    width: 100%;\n    height: 100%;\n    top:0;\n    left:0;\n    transform: scale(0.8);\n    transition: all 0.2s linear;\n    background-color: ", ";\n    z-index: 10;\n    animation: ", " 0.2s linear;\n  }\n\n  &:hover{\n    &::before{\n      transform: scale(0.9);\n    }\n  }\n  \n  ", "\n"], ["\n  position: relative;\n  width: 100%;\n  height: 100%;\n  cursor: pointer;\n  border-radius: 0.4em;\n  background-color: inherit;\n\n  &::before{\n    position: absolute;\n    content: '';\n    border-radius: 0.2em;\n    width: 100%;\n    height: 100%;\n    top:0;\n    left:0;\n    transform: scale(0.8);\n    transition: all 0.2s linear;\n    background-color: ", ";\n    z-index: 10;\n    animation: ", " 0.2s linear;\n  }\n\n  &:hover{\n    &::before{\n      transform: scale(0.9);\n    }\n  }\n  \n  ",
     "\n"])), function (props) { return props.color; }, KeyframesItem, function (props) { return props.active && CSSActive; });
 var templateObject_1$1, templateObject_2$1, templateObject_3$1, templateObject_4, templateObject_5, templateObject_6;
 
@@ -60,28 +61,28 @@ function _key () {
     return 'w-color-' + key + '-';
 }
 
-const img$1 = "data:image/svg+xml,%3c%3fxml version='1.0' encoding='utf-8'%3f%3e%3c!-- Generator: Adobe Illustrator 22.0.1%2c SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3e%3csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 32 32' style='enable-background:new 0 0 32 32%3b' xml:space='preserve'%3e%3cstyle type='text/css'%3e .st0%7bfill:%23010101%3bstroke:black%3bstroke-width:2%3bstroke-miterlimit:10%3b%7d%3c/style%3e%3cpolygon class='st0' points='26%2c5.6 16.2%2c15.5 6.3%2c5.6 5.6%2c6.3 15.5%2c16.2 5.6%2c26.1 6.3%2c26.7 16.2%2c16.8 26%2c26.7 26.7%2c26.1 16.8%2c16.2 26.7%2c6.3 '/%3e%3c/svg%3e";
+var img$1 = "data:image/svg+xml,%3c%3fxml version='1.0' encoding='utf-8'%3f%3e%3c!-- Generator: Adobe Illustrator 22.0.1%2c SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3e%3csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 32 32' style='enable-background:new 0 0 32 32%3b' xml:space='preserve'%3e%3cstyle type='text/css'%3e .st0%7bfill:%23010101%3bstroke:black%3bstroke-width:2%3bstroke-miterlimit:10%3b%7d%3c/style%3e%3cpolygon class='st0' points='26%2c5.6 16.2%2c15.5 6.3%2c5.6 5.6%2c6.3 15.5%2c16.2 5.6%2c26.1 6.3%2c26.7 16.2%2c16.8 26%2c26.7 26.7%2c26.1 16.8%2c16.2 26.7%2c6.3 '/%3e%3c/svg%3e";
 
-var Container = React__default.memo(function (props) {
+var Container = React__default['default'].memo(function (props) {
     var _keyWColor = _key();
-    return (React__default.createElement(WColorContainer, null, props.colour.map(function (color, key) { return (React__default.createElement(WColorItemWrap, { key: _keyWColor + "-" + key },
-        React__default.createElement(WColorItem, { color: color, active: color === props.select, onClick: function () { return props.fnSelected(color); }, onDoubleClick: function () { return props.fnRemove(color); } }),
-        key > 9 && (React__default.createElement("button", { onClick: function () { return props.fnRemove(color); }, type: 'button' },
-            React__default.createElement("img", { src: img$1, alt: 'w-color' }))))); })));
+    return (React__default['default'].createElement(WColorContainer, null, props.colour.map(function (color, key) { return (React__default['default'].createElement(WColorItemWrap, { key: _keyWColor + "-" + key },
+        React__default['default'].createElement(WColorItem, { color: color, active: color === props.select, onClick: function () { return props.fnSelected(color); }, onDoubleClick: function () { return props.fnRemove(color); } }),
+        key > 9 && (React__default['default'].createElement("button", { onClick: function () { return props.fnRemove(color); }, type: 'button' },
+            React__default['default'].createElement("img", { src: img$1, alt: 'w-color' }))))); })));
 });
 
-var WColorPicker = styled__default.div(templateObject_1$2 || (templateObject_1$2 = __makeTemplateObject(["\n  margin: 0 0 0.4em 0;\n  border-bottom: 1px solid #e9e9e9;\n  *{\n    will-change: all;\n  }\n"], ["\n  margin: 0 0 0.4em 0;\n  border-bottom: 1px solid #e9e9e9;\n  *{\n    will-change: all;\n  }\n"])));
-var WColorPickerTemplate = styled__default.div(templateObject_2$2 || (templateObject_2$2 = __makeTemplateObject([""], [""])));
-var WColorPickerBar = styled__default.div(templateObject_3$2 || (templateObject_3$2 = __makeTemplateObject(["\n  margin-top: .5em;\n"], ["\n  margin-top: .5em;\n"])));
-var WColorPickerControl = styled__default.div(templateObject_4$1 || (templateObject_4$1 = __makeTemplateObject(["\n  padding: 0.3em 0;\n  display: flex;\n  align-items: center;\n\n  & > label{\n    flex: 0 0 40px;\n    text-align: center;\n    opacity: 0.6;\n    font-size: 0.8em;\n  }\n\n  & > input {\n    width: calc(100% - 60px);\n    padding: 3px;\n    border: none;\n    border-bottom:1px solid #e9e9e9;\n\n    &:focus{\n      outline: 0;\n    }\n  }\n"], ["\n  padding: 0.3em 0;\n  display: flex;\n  align-items: center;\n\n  & > label{\n    flex: 0 0 40px;\n    text-align: center;\n    opacity: 0.6;\n    font-size: 0.8em;\n  }\n\n  & > input {\n    width: calc(100% - 60px);\n    padding: 3px;\n    border: none;\n    border-bottom:1px solid #e9e9e9;\n\n    &:focus{\n      outline: 0;\n    }\n  }\n"])));
-var WColorPickerControlValue = styled__default.div.attrs(function (props) { return ({
+var WColorPicker = styled__default['default'].div(templateObject_1$2 || (templateObject_1$2 = __makeTemplateObject(["\n  margin: 0 0 0.4em 0;\n  border-bottom: 1px solid #e9e9e9;\n  *{\n    will-change: all;\n  }\n"], ["\n  margin: 0 0 0.4em 0;\n  border-bottom: 1px solid #e9e9e9;\n  *{\n    will-change: all;\n  }\n"])));
+var WColorPickerTemplate = styled__default['default'].div(templateObject_2$2 || (templateObject_2$2 = __makeTemplateObject([""], [""])));
+var WColorPickerBar = styled__default['default'].div(templateObject_3$2 || (templateObject_3$2 = __makeTemplateObject(["\n  margin-top: .5em;\n"], ["\n  margin-top: .5em;\n"])));
+var WColorPickerControl = styled__default['default'].div(templateObject_4$1 || (templateObject_4$1 = __makeTemplateObject(["\n  padding: 0.3em 0;\n  display: flex;\n  align-items: center;\n\n  & > label{\n    flex: 0 0 40px;\n    text-align: center;\n    opacity: 0.6;\n    font-size: 0.8em;\n  }\n\n  & > input {\n    width: calc(100% - 60px);\n    padding: 3px;\n    border: none;\n    border-bottom:1px solid #e9e9e9;\n\n    &:focus{\n      outline: 0;\n    }\n  }\n"], ["\n  padding: 0.3em 0;\n  display: flex;\n  align-items: center;\n\n  & > label{\n    flex: 0 0 40px;\n    text-align: center;\n    opacity: 0.6;\n    font-size: 0.8em;\n  }\n\n  & > input {\n    width: calc(100% - 60px);\n    padding: 3px;\n    border: none;\n    border-bottom:1px solid #e9e9e9;\n\n    &:focus{\n      outline: 0;\n    }\n  }\n"])));
+var WColorPickerControlValue = styled__default['default'].div.attrs(function (props) { return ({
     style: {
         background: props.color,
     },
 }); })(templateObject_5$1 || (templateObject_5$1 = __makeTemplateObject(["\n  flex: 0 0 20px;\n  height: 20px;\n  border-radius: 50%;\n"], ["\n  flex: 0 0 20px;\n  height: 20px;\n  border-radius: 50%;\n"])));
 var templateObject_1$2, templateObject_2$2, templateObject_3$2, templateObject_4$1, templateObject_5$1;
 
-var Template = React__default.memo(function (props) {
+var Template = React__default['default'].memo(function (props) {
     var refCircleSelect = React.useRef();
     var refColorPickerBox = React.useRef();
     var _a = React.useState([50, 50]), cCircleSelect = _a[0], setCCircleSelect = _a[1];
@@ -141,23 +142,23 @@ var Template = React__default.memo(function (props) {
             props.change(SPercent, LPercent);
         }
     }
-    return (React__default.createElement(WColorPickerTemplate, null,
-        React__default.createElement("svg", { width: '100%', height: '120' },
-            React__default.createElement("defs", null,
-                React__default.createElement("linearGradient", { id: 'saturation', x1: '0%', y1: '0%', x2: '100%', y2: '0%' },
-                    React__default.createElement("stop", { offset: '0%', stopColor: '#fff' }),
-                    React__default.createElement("stop", { offset: '100%', stopColor: "hsl(" + props.h + ",100%,50%)" })),
-                React__default.createElement("linearGradient", { id: 'brightness', x1: '0%', y1: '0%', x2: '0%', y2: '100%' },
-                    React__default.createElement("stop", { offset: '0%', stopColor: 'rgba(0,0,0,0)' }),
-                    React__default.createElement("stop", { offset: '100%', stopColor: '#000' })),
-                React__default.createElement("pattern", { id: 'pattern_config', width: '100%', height: '100%' },
-                    React__default.createElement("rect", { x: '0', y: '0', width: '100%', height: '100%', fill: 'url(#saturation)' }),
-                    React__default.createElement("rect", { x: '0', y: '0', width: '100%', height: '100%', fill: 'url(#brightness)' }))),
-            React__default.createElement("rect", { ref: refColorPickerBox, rx: '5', ry: '5', x: '1', y: '1', width: '100%', height: '100%', stroke: '#fff', strokeWidth: '2', fill: 'url(#pattern_config)' }),
-            React__default.createElement("circle", { ref: refCircleSelect, cx: cCircleSelect[0], cy: cCircleSelect[1], r: '5', stroke: 'white', strokeWidth: '2', fill: 'transparent' }))));
+    return (React__default['default'].createElement(WColorPickerTemplate, null,
+        React__default['default'].createElement("svg", { width: '100%', height: '120' },
+            React__default['default'].createElement("defs", null,
+                React__default['default'].createElement("linearGradient", { id: 'saturation', x1: '0%', y1: '0%', x2: '100%', y2: '0%' },
+                    React__default['default'].createElement("stop", { offset: '0%', stopColor: '#fff' }),
+                    React__default['default'].createElement("stop", { offset: '100%', stopColor: "hsl(" + props.h + ",100%,50%)" })),
+                React__default['default'].createElement("linearGradient", { id: 'brightness', x1: '0%', y1: '0%', x2: '0%', y2: '100%' },
+                    React__default['default'].createElement("stop", { offset: '0%', stopColor: 'rgba(0,0,0,0)' }),
+                    React__default['default'].createElement("stop", { offset: '100%', stopColor: '#000' })),
+                React__default['default'].createElement("pattern", { id: 'pattern_config', width: '100%', height: '100%' },
+                    React__default['default'].createElement("rect", { x: '0', y: '0', width: '100%', height: '100%', fill: 'url(#saturation)' }),
+                    React__default['default'].createElement("rect", { x: '0', y: '0', width: '100%', height: '100%', fill: 'url(#brightness)' }))),
+            React__default['default'].createElement("rect", { ref: refColorPickerBox, rx: '5', ry: '5', x: '1', y: '1', width: '100%', height: '100%', stroke: '#fff', strokeWidth: '2', fill: 'url(#pattern_config)' }),
+            React__default['default'].createElement("circle", { ref: refCircleSelect, cx: cCircleSelect[0], cy: cCircleSelect[1], r: '5', stroke: 'white', strokeWidth: '2', fill: 'transparent' }))));
 });
 
-var Slider = React__default.memo(function (props) {
+var Slider = React__default['default'].memo(function (props) {
     var refSliderSelect = React.useRef();
     var refSliderBox = React.useRef();
     var _a = React.useState(1), cSelect = _a[0], setSelect = _a[1];
@@ -210,19 +211,19 @@ var Slider = React__default.memo(function (props) {
             // setSelect(_c);
         }
     }
-    return (React__default.createElement(WColorPickerBar, null,
-        React__default.createElement("svg", { width: '100%', height: '26' },
-            React__default.createElement("defs", null,
-                React__default.createElement("linearGradient", { id: 'hue', x1: '100%', y1: '0%', x2: '0%', y2: '0%' },
-                    React__default.createElement("stop", { offset: '0%', stopColor: '#f00' }),
-                    React__default.createElement("stop", { offset: '16.666%', stopColor: '#ff0' }),
-                    React__default.createElement("stop", { offset: '33.333%', stopColor: '#0f0' }),
-                    React__default.createElement("stop", { offset: '50%', stopColor: '#0ff' }),
-                    React__default.createElement("stop", { offset: '66.666%', stopColor: '#00f' }),
-                    React__default.createElement("stop", { offset: '83.333%', stopColor: '#f0f' }),
-                    React__default.createElement("stop", { offset: '100%', stopColor: '#f00' }))),
-            React__default.createElement("rect", { ref: refSliderBox, rx: '5', ry: '5', x: '0', y: '1', width: '100%', height: '20', stroke: '#fff', strokeWidth: '2', fill: 'url(#hue)' }),
-            React__default.createElement("rect", { ref: refSliderSelect, width: '5', height: '22', stroke: '#000', strokeWidth: '2', fill: 'transparent', rx: '5', ry: '5', x: cSelect, y: '0' }))));
+    return (React__default['default'].createElement(WColorPickerBar, null,
+        React__default['default'].createElement("svg", { width: '100%', height: '26' },
+            React__default['default'].createElement("defs", null,
+                React__default['default'].createElement("linearGradient", { id: 'hue', x1: '100%', y1: '0%', x2: '0%', y2: '0%' },
+                    React__default['default'].createElement("stop", { offset: '0%', stopColor: '#f00' }),
+                    React__default['default'].createElement("stop", { offset: '16.666%', stopColor: '#ff0' }),
+                    React__default['default'].createElement("stop", { offset: '33.333%', stopColor: '#0f0' }),
+                    React__default['default'].createElement("stop", { offset: '50%', stopColor: '#0ff' }),
+                    React__default['default'].createElement("stop", { offset: '66.666%', stopColor: '#00f' }),
+                    React__default['default'].createElement("stop", { offset: '83.333%', stopColor: '#f0f' }),
+                    React__default['default'].createElement("stop", { offset: '100%', stopColor: '#f00' }))),
+            React__default['default'].createElement("rect", { ref: refSliderBox, rx: '5', ry: '5', x: '0', y: '1', width: '100%', height: '20', stroke: '#fff', strokeWidth: '2', fill: 'url(#hue)' }),
+            React__default['default'].createElement("rect", { ref: refSliderSelect, width: '5', height: '22', stroke: '#000', strokeWidth: '2', fill: 'transparent', rx: '5', ry: '5', x: cSelect, y: '0' }))));
 });
 
 /*
@@ -356,7 +357,7 @@ var hexAToRGBA = function (h, toHSL) {
     }
 };
 
-var Control = React__default.memo(function (props) {
+var Control = React__default['default'].memo(function (props) {
     var _a = React.useState(''), value = _a[0], setValue = _a[1];
     var _b = React.useState(false), focus = _b[0], setFocus = _b[1];
     var refInput = React.useRef();
@@ -378,13 +379,13 @@ var Control = React__default.memo(function (props) {
         }
         setValue(_value);
     }
-    return (React__default.createElement(WColorPickerControl, null,
-        React__default.createElement(WColorPickerControlValue, { color: value }),
-        React__default.createElement("label", { htmlFor: 'wColorPickerValueHEX' }, " HEX "),
-        React__default.createElement("input", { ref: refInput, type: 'text', id: 'wColorPickerValueHEX', value: value, onFocus: function () { return setFocus(true); }, onBlur: function () { return setFocus(false); }, onChange: handleChange })));
+    return (React__default['default'].createElement(WColorPickerControl, null,
+        React__default['default'].createElement(WColorPickerControlValue, { color: value }),
+        React__default['default'].createElement("label", { htmlFor: 'wColorPickerValueHEX' }, " HEX "),
+        React__default['default'].createElement("input", { ref: refInput, type: 'text', id: 'wColorPickerValueHEX', value: value, onFocus: function () { return setFocus(true); }, onBlur: function () { return setFocus(false); }, onChange: handleChange })));
 });
 
-var ColorPicker = React__default.memo(function (props) {
+var ColorPicker = React__default['default'].memo(function (props) {
     var _a = React.useState(0), hue = _a[0], setHue = _a[1];
     var _b = React.useState(12), saturation = _b[0], setSaturation = _b[1];
     var _c = React.useState(47), lightness = _c[0], setLightness = _c[1];
@@ -403,14 +404,14 @@ var ColorPicker = React__default.memo(function (props) {
     var changeColorHue = function (h) {
         setHue(h);
     };
-    return (React__default.createElement(WColorPicker, null,
-        React__default.createElement(WColorHeading, null, _t('Color picker')),
-        React__default.createElement(Template, { h: hue, s: saturation, l: lightness, change: changeColorSL }),
-        React__default.createElement(Slider, { h: hue, change: changeColorHue }),
-        React__default.createElement(Control, { h: hue, s: saturation, l: lightness, change: changeColorHex })));
+    return (React__default['default'].createElement(WColorPicker, null,
+        React__default['default'].createElement(WColorHeading, null, _t('Color picker')),
+        React__default['default'].createElement(Template, { h: hue, s: saturation, l: lightness, change: changeColorSL }),
+        React__default['default'].createElement(Slider, { h: hue, change: changeColorHue }),
+        React__default['default'].createElement(Control, { h: hue, s: saturation, l: lightness, change: changeColorHex })));
 });
 
-var Selector = React__default.memo(function (props) {
+var Selector = React__default['default'].memo(function (props) {
     var _a = React.useState('#866969'), hex = _a[0], setHex = _a[1];
     var template = [
         '#54478c',
@@ -473,23 +474,32 @@ var Selector = React__default.memo(function (props) {
         setValue(color);
         props.fnSelected(color);
     }
-    return (React__default.createElement(WColor, { dark: !!props.dark },
-        React__default.createElement(ColorPicker, { hex: function (color) { return setHex(color); } }),
-        React__default.createElement(WColorHeading, null,
+    return (React__default['default'].createElement(WColor, { dark: !!props.dark },
+        React__default['default'].createElement(ColorPicker, { hex: function (color) { return setHex(color); } }),
+        React__default['default'].createElement(WColorHeading, null,
             _t('Recent'),
-            React__default.createElement(WColorAdd, { type: 'button', onClick: function () { return addColour(hex); } },
-                React__default.createElement("img", { src: img, alt: 'w-color' }))),
-        React__default.createElement(Container, { colour: __spreadArrays(template, colour), select: value, fnSelected: selectColor, fnRemove: removeColour })));
+            React__default['default'].createElement(WColorAdd, { type: 'button', onClick: function () { return addColour(hex); } },
+                React__default['default'].createElement("img", { src: img, alt: 'w-color' }))),
+        React__default['default'].createElement(Container, { colour: __spreadArrays(template, colour), select: value, fnSelected: selectColor, fnRemove: removeColour })));
 });
 
-var MainWrap = styled__default.div(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["\n  display: block;\n"], ["\n  display: block;\n"])));
-var MainValue = styled__default.div(templateObject_2$3 || (templateObject_2$3 = __makeTemplateObject(["\n  cursor: pointer;\n  border-radius: 5px;\n  ", "\n"], ["\n  cursor: pointer;\n  border-radius: 5px;\n  ",
+var MainWrap = styled__default['default'].div(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["\n  display: block;\n"], ["\n  display: block;\n"])));
+var MainValue = styled__default['default'].div(templateObject_2$3 || (templateObject_2$3 = __makeTemplateObject(["\n  cursor: pointer;\n  border-radius: 5px;\n  ", "\n"], ["\n  cursor: pointer;\n  border-radius: 5px;\n  ",
     "\n"])), function (props) { return "\n    width: " + props.width + "px;\n    height: " + props.height + "px;\n    background-color: " + props.color + ";\n  "; });
-var MainSelector = styled__default.div(templateObject_3$3 || (templateObject_3$3 = __makeTemplateObject(["\n  position: absolute;\n  transition: all 0.1s linear;\n  z-index: ", ";\n  opacity: ", ";\n  transform: ", ";\n"], ["\n  position: absolute;\n  transition: all 0.1s linear;\n  z-index: ", ";\n  opacity: ", ";\n  transform: ", ";\n"])), function (props) { return (props.show ? '999' : '-1'); }, function (props) { return (props.show ? '1' : '0'); }, function (props) { return props.show ? "translate(0, 5px)" : "translate(0, -5px)"; });
-var App = React__default.memo(function (props) {
+var MainSelector = styled__default['default'].div(templateObject_3$3 || (templateObject_3$3 = __makeTemplateObject(["\n  position: absolute;\n  transition: all 0.1s linear;\n  z-index: ", ";\n  opacity: ", ";\n  transform: ", ";\n"], ["\n  position: absolute;\n  transition: all 0.1s linear;\n  z-index: ", ";\n  opacity: ", ";\n  transform: ",
+    ";\n"])), function (props) { return (props.show ? '999' : '-1'); }, function (props) { return (props.show ? '1' : '0'); }, function (props) {
+    return props.show ? "translate(0, 5px)" : "translate(0, -5px)";
+});
+var App = React__default['default'].memo(function (props) {
     var _a = React.useState(props.defaultValue || '#d1d5d1'), value = _a[0], setValue = _a[1];
     var _b = React.useState(false), show = _b[0], setShow = _b[1];
     var refMenu = React.useRef();
+    var posScreen = React.useMemo(function () { return ({
+        x: 0,
+        y: 0,
+        height: window.innerHeight,
+        width: window.innerWidth,
+    }); }, []);
     /**
      */
     function hiddenDropdownWhenClick() {
@@ -526,10 +536,35 @@ var App = React__default.memo(function (props) {
         setValue(color);
         props.onChange(color);
     }
-    return (React__default.createElement(MainWrap, null,
-        React__default.createElement(MainValue, { color: value, height: props.height || 30, width: props.width || 30, onClick: function () { return setShow(!show); } }),
-        React__default.createElement(MainSelector, { ref: refMenu, show: show },
-            React__default.createElement(Selector, { fnSelected: handleChange }))));
+    React.useEffect(function () {
+        var posElement = refMenu.current.getBoundingClientRect();
+        var transform = '';
+        /*
+         * TODO
+         * Handle element with x
+         */
+        if (posElement.x < 0) {
+            transform += ' translateX(100%)';
+        }
+        else if ((posElement.x + posElement.width) > posScreen.width - 10) {
+            transform += ' translateX(-100%)';
+        }
+        /*
+         * TODO
+         * Handle element with y
+         */
+        if (posElement.top < 0) {
+            transform += ' translateY(100%)';
+        }
+        else if (posElement.bottom > posScreen.height) {
+            transform += " translateY(calc(-100% - " + (props.height || 30) + "px))";
+        }
+        refMenu.current.style.transform = transform;
+    }, [refMenu === null || refMenu === void 0 ? void 0 : refMenu.current, posScreen, props.height]);
+    return (React__default['default'].createElement(MainWrap, null,
+        React__default['default'].createElement(MainValue, { color: value, height: props.height || 30, width: props.width || 30, onClick: function () { return setShow(!show); } }),
+        React__default['default'].createElement(MainSelector, { ref: refMenu, show: show },
+            React__default['default'].createElement(Selector, { fnSelected: handleChange }))));
 });
 var templateObject_1$3, templateObject_2$3, templateObject_3$3;
 

@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, useMemo } from 'react';
 import styled, { keyframes, css } from 'styled-components';
 
 /*! *****************************************************************************
@@ -34,7 +34,7 @@ var WColorHeading = styled.div(templateObject_2 || (templateObject_2 = __makeTem
 var WColorAdd = styled.button(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  display: block;\n  width: 1.4em;\n  height: 1.4em;\n  background-color: transparent;\n  padding: 0;\n  border: none;\n  cursor: pointer;\n  position: absolute;\n  right: 5px;\n  top: 0;\n  box-sizing: border-box;\n\n  &::before{\n    content: '';\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    background-color: #000;\n    opacity: 0.1;\n    transform: scale(0);\n    transition: transform 0.2s ease-in;\n    top: 0;\n    left: 0;\n    border-radius: 50%;\n  }\n\n  &:hover{\n    &::before{\n      transform: scale(1);\n    }\n  }\n\n  &:focus{\n    outline: 0;\n  }\n\n  img{\n    margin: 20%;\n    width: 60%;\n    height: 60%;\n  }\n"], ["\n  display: block;\n  width: 1.4em;\n  height: 1.4em;\n  background-color: transparent;\n  padding: 0;\n  border: none;\n  cursor: pointer;\n  position: absolute;\n  right: 5px;\n  top: 0;\n  box-sizing: border-box;\n\n  &::before{\n    content: '';\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    background-color: #000;\n    opacity: 0.1;\n    transform: scale(0);\n    transition: transform 0.2s ease-in;\n    top: 0;\n    left: 0;\n    border-radius: 50%;\n  }\n\n  &:hover{\n    &::before{\n      transform: scale(1);\n    }\n  }\n\n  &:focus{\n    outline: 0;\n  }\n\n  img{\n    margin: 20%;\n    width: 60%;\n    height: 60%;\n  }\n"])));
 var templateObject_1, templateObject_2, templateObject_3;
 
-const img = "data:image/svg+xml,%3c%3fxml version='1.0' encoding='iso-8859-1'%3f%3e%3c!-- Generator: Adobe Illustrator 19.0.0%2c SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3e%3csvg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 496 496' style='enable-background:new 0 0 496 496%3b' xml:space='preserve'%3e%3cg%3e %3cg%3e %3cpath d='M488%2c240H256V8c0-4.418-3.582-8-8-8s-8%2c3.582-8%2c8v232H8c-4.418%2c0-8%2c3.582-8%2c8s3.582%2c8%2c8%2c8h232v232c0%2c4.418%2c3.582%2c8%2c8%2c8 s8-3.582%2c8-8V256h232c4.418%2c0%2c8-3.582%2c8-8S492.418%2c240%2c488%2c240z'/%3e %3c/g%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3c/svg%3e";
+var img = "data:image/svg+xml,%3c%3fxml version='1.0' encoding='iso-8859-1'%3f%3e%3c!-- Generator: Adobe Illustrator 19.0.0%2c SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3e%3csvg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 496 496' style='enable-background:new 0 0 496 496%3b' xml:space='preserve'%3e%3cg%3e %3cg%3e %3cpath d='M488%2c240H256V8c0-4.418-3.582-8-8-8s-8%2c3.582-8%2c8v232H8c-4.418%2c0-8%2c3.582-8%2c8s3.582%2c8%2c8%2c8h232v232c0%2c4.418%2c3.582%2c8%2c8%2c8 s8-3.582%2c8-8V256h232c4.418%2c0%2c8-3.582%2c8-8S492.418%2c240%2c488%2c240z'/%3e %3c/g%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3cg%3e%3c/g%3e%3c/svg%3e";
 
 function _t (text, language) {
     return text;
@@ -54,7 +54,7 @@ function _key () {
     return 'w-color-' + key + '-';
 }
 
-const img$1 = "data:image/svg+xml,%3c%3fxml version='1.0' encoding='utf-8'%3f%3e%3c!-- Generator: Adobe Illustrator 22.0.1%2c SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3e%3csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 32 32' style='enable-background:new 0 0 32 32%3b' xml:space='preserve'%3e%3cstyle type='text/css'%3e .st0%7bfill:%23010101%3bstroke:black%3bstroke-width:2%3bstroke-miterlimit:10%3b%7d%3c/style%3e%3cpolygon class='st0' points='26%2c5.6 16.2%2c15.5 6.3%2c5.6 5.6%2c6.3 15.5%2c16.2 5.6%2c26.1 6.3%2c26.7 16.2%2c16.8 26%2c26.7 26.7%2c26.1 16.8%2c16.2 26.7%2c6.3 '/%3e%3c/svg%3e";
+var img$1 = "data:image/svg+xml,%3c%3fxml version='1.0' encoding='utf-8'%3f%3e%3c!-- Generator: Adobe Illustrator 22.0.1%2c SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3e%3csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 32 32' style='enable-background:new 0 0 32 32%3b' xml:space='preserve'%3e%3cstyle type='text/css'%3e .st0%7bfill:%23010101%3bstroke:black%3bstroke-width:2%3bstroke-miterlimit:10%3b%7d%3c/style%3e%3cpolygon class='st0' points='26%2c5.6 16.2%2c15.5 6.3%2c5.6 5.6%2c6.3 15.5%2c16.2 5.6%2c26.1 6.3%2c26.7 16.2%2c16.8 26%2c26.7 26.7%2c26.1 16.8%2c16.2 26.7%2c6.3 '/%3e%3c/svg%3e";
 
 var Container = React.memo(function (props) {
     var _keyWColor = _key();
@@ -479,11 +479,20 @@ var Selector = React.memo(function (props) {
 var MainWrap = styled.div(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["\n  display: block;\n"], ["\n  display: block;\n"])));
 var MainValue = styled.div(templateObject_2$3 || (templateObject_2$3 = __makeTemplateObject(["\n  cursor: pointer;\n  border-radius: 5px;\n  ", "\n"], ["\n  cursor: pointer;\n  border-radius: 5px;\n  ",
     "\n"])), function (props) { return "\n    width: " + props.width + "px;\n    height: " + props.height + "px;\n    background-color: " + props.color + ";\n  "; });
-var MainSelector = styled.div(templateObject_3$3 || (templateObject_3$3 = __makeTemplateObject(["\n  position: absolute;\n  transition: all 0.1s linear;\n  z-index: ", ";\n  opacity: ", ";\n  transform: ", ";\n"], ["\n  position: absolute;\n  transition: all 0.1s linear;\n  z-index: ", ";\n  opacity: ", ";\n  transform: ", ";\n"])), function (props) { return (props.show ? '999' : '-1'); }, function (props) { return (props.show ? '1' : '0'); }, function (props) { return props.show ? "translate(0, 5px)" : "translate(0, -5px)"; });
+var MainSelector = styled.div(templateObject_3$3 || (templateObject_3$3 = __makeTemplateObject(["\n  position: absolute;\n  transition: all 0.1s linear;\n  z-index: ", ";\n  opacity: ", ";\n  transform: ", ";\n"], ["\n  position: absolute;\n  transition: all 0.1s linear;\n  z-index: ", ";\n  opacity: ", ";\n  transform: ",
+    ";\n"])), function (props) { return (props.show ? '999' : '-1'); }, function (props) { return (props.show ? '1' : '0'); }, function (props) {
+    return props.show ? "translate(0, 5px)" : "translate(0, -5px)";
+});
 var App = React.memo(function (props) {
     var _a = useState(props.defaultValue || '#d1d5d1'), value = _a[0], setValue = _a[1];
     var _b = useState(false), show = _b[0], setShow = _b[1];
     var refMenu = useRef();
+    var posScreen = useMemo(function () { return ({
+        x: 0,
+        y: 0,
+        height: window.innerHeight,
+        width: window.innerWidth,
+    }); }, []);
     /**
      */
     function hiddenDropdownWhenClick() {
@@ -520,6 +529,31 @@ var App = React.memo(function (props) {
         setValue(color);
         props.onChange(color);
     }
+    useEffect(function () {
+        var posElement = refMenu.current.getBoundingClientRect();
+        var transform = '';
+        /*
+         * TODO
+         * Handle element with x
+         */
+        if (posElement.x < 0) {
+            transform += ' translateX(100%)';
+        }
+        else if ((posElement.x + posElement.width) > posScreen.width - 10) {
+            transform += ' translateX(-100%)';
+        }
+        /*
+         * TODO
+         * Handle element with y
+         */
+        if (posElement.top < 0) {
+            transform += ' translateY(100%)';
+        }
+        else if (posElement.bottom > posScreen.height) {
+            transform += " translateY(calc(-100% - " + (props.height || 30) + "px))";
+        }
+        refMenu.current.style.transform = transform;
+    }, [refMenu === null || refMenu === void 0 ? void 0 : refMenu.current, posScreen, props.height]);
     return (React.createElement(MainWrap, null,
         React.createElement(MainValue, { color: value, height: props.height || 30, width: props.width || 30, onClick: function () { return setShow(!show); } }),
         React.createElement(MainSelector, { ref: refMenu, show: show },
