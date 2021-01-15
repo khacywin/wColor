@@ -487,24 +487,41 @@ var MainWrap = styled__default['default'].div(templateObject_1$3 || (templateObj
 var MainValue = styled__default['default'].div(templateObject_2$3 || (templateObject_2$3 = __makeTemplateObject(["\n  cursor: pointer;\n  border-radius: 5px;\n  ", "\n"], ["\n  cursor: pointer;\n  border-radius: 5px;\n  ",
     "\n"])), function (props) { return "\n    width: " + props.width + "px;\n    height: " + props.height + "px;\n    background-color: " + props.color + ";\n  "; });
 var MainSelector = styled__default['default'].div(templateObject_3$3 || (templateObject_3$3 = __makeTemplateObject(["\n  position: absolute;\n  transition: all 0.1s linear;\n  z-index: ", ";\n  opacity: ", ";\n  transform: ", ";\n"], ["\n  position: absolute;\n  transition: all 0.1s linear;\n  z-index: ", ";\n  opacity: ", ";\n  transform: ",
-    ";\n"])), function (props) { return (props.show ? '999' : '-1'); }, function (props) { return (props.show ? '1' : '0'); }, function (props) {
+    ";\n"])), function (props) { return (props.show ? "999" : "-1"); }, function (props) { return (props.show ? "1" : "0"); }, function (props) {
     return props.show ? "translate(0, 5px)" : "translate(0, -5px)";
 });
-var App = React__default['default'].memo(function (props) {
-    var _a = React.useState(props.defaultValue || '#d1d5d1'), value = _a[0], setValue = _a[1];
+var App = (function (props) {
+    var _a = React.useState(props.defaultValue || "#d1d5d1"), value = _a[0], setValue = _a[1];
     var _b = React.useState(false), show = _b[0], setShow = _b[1];
     var refMenu = React.useRef();
-    var posScreen = React.useMemo(function () { return ({
-        x: 0,
-        y: 0,
-        height: window.innerHeight,
-        width: window.innerWidth,
-    }); }, []);
+    React.useEffect(function () {
+        var posElement = refMenu.current.getBoundingClientRect();
+        var posScreen = {
+            x: 0,
+            y: 0,
+            height: window.innerHeight,
+            width: window.innerWidth,
+        };
+        var transform = [];
+        if (posElement.x < 0) {
+            transform.push("translateX(100%)");
+        }
+        else if (posElement.right > posScreen.width - 10) {
+            transform.push(" translateX(-100%)");
+        }
+        if (posElement.top < 0) {
+            transform.push(" translateY(100%)");
+        }
+        else if (posElement.bottom > posScreen.height) {
+            transform.push("translateY(calc(-100% - " + (props.height || 30) + "px))");
+        }
+        refMenu.current.style.transform = transform;
+    }, [refMenu === null || refMenu === void 0 ? void 0 : refMenu.current, props.height]);
     /**
      */
     function hiddenDropdownWhenClick() {
         setShow(false);
-        document.removeEventListener('click', handleClick);
+        document.removeEventListener("click", handleClick);
     }
     /**
      * @param e
@@ -512,14 +529,16 @@ var App = React__default['default'].memo(function (props) {
     function handleClick(e) {
         var path = e.path;
         var show = false;
-        path.forEach(function (item) {
-            if (refMenu.current.childNodes) {
-                refMenu.current.childNodes.forEach(function (node) {
-                    if (node === item)
-                        show = true;
-                });
-            }
-        });
+        path &&
+            path.forEach(function (item) {
+                var _a, _b;
+                if ((_a = refMenu === null || refMenu === void 0 ? void 0 : refMenu.current) === null || _a === void 0 ? void 0 : _a.childNodes) {
+                    (_b = refMenu === null || refMenu === void 0 ? void 0 : refMenu.current) === null || _b === void 0 ? void 0 : _b.childNodes.forEach(function (node) {
+                        if (node === item)
+                            show = true;
+                    });
+                }
+            });
         if (!show)
             hiddenDropdownWhenClick();
     }
@@ -529,38 +548,13 @@ var App = React__default['default'].memo(function (props) {
          * Hidden menu when you click in out of menu
          */
         if (show) {
-            document.addEventListener('click', handleClick);
+            document.addEventListener("click", handleClick);
         }
-    });
+    }, [show]);
     function handleChange(color) {
         setValue(color);
         props.onChange(color);
     }
-    React.useEffect(function () {
-        var posElement = refMenu.current.getBoundingClientRect();
-        var transform = '';
-        /*
-         * TODO
-         * Handle element with x
-         */
-        if (posElement.x < 0) {
-            transform += ' translateX(100%)';
-        }
-        else if ((posElement.x + posElement.width) > posScreen.width - 10) {
-            transform += ' translateX(-100%)';
-        }
-        /*
-         * TODO
-         * Handle element with y
-         */
-        if (posElement.top < 0) {
-            transform += ' translateY(100%)';
-        }
-        else if (posElement.bottom > posScreen.height) {
-            transform += " translateY(calc(-100% - " + (props.height || 30) + "px))";
-        }
-        refMenu.current.style.transform = transform;
-    }, [refMenu === null || refMenu === void 0 ? void 0 : refMenu.current, posScreen, props.height]);
     return (React__default['default'].createElement(MainWrap, null,
         React__default['default'].createElement(MainValue, { color: value, height: props.height || 30, width: props.width || 30, onClick: function () { return setShow(!show); } }),
         React__default['default'].createElement(MainSelector, { ref: refMenu, show: show },

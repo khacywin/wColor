@@ -1,14 +1,8 @@
-import React, {
-  useState,
-  useEffect,
-  useRef,
-  SyntheticEvent,
-  useMemo,
-} from 'react';
-import styled from 'styled-components';
-import _key from './util/_key';
-import _t from './util/_t';
-import Selector from './Selector';
+import React, { useState, useEffect, useRef, useMemo } from "react";
+import styled from "styled-components";
+import _key from "./util/_key";
+import _t from "./util/_t";
+import Selector from "./Selector";
 
 const MainWrap = styled.div`
   display: block;
@@ -35,8 +29,8 @@ interface PropsMainSelector {
 const MainSelector = styled.div<PropsMainSelector>`
   position: absolute;
   transition: all 0.1s linear;
-  z-index: ${(props) => (props.show ? '999' : '-1')};
-  opacity: ${(props) => (props.show ? '1' : '0')};
+  z-index: ${(props) => (props.show ? "999" : "-1")};
+  opacity: ${(props) => (props.show ? "1" : "0")};
   transform: ${(props) =>
     props.show ? `translate(0, 5px)` : `translate(0, -5px)`};
 `;
@@ -47,42 +41,59 @@ interface Props {
   width?: number;
   height?: number;
 }
-export default React.memo((props: Props) => {
-  const [value, setValue] = useState(props.defaultValue || '#d1d5d1');
+export default (props: Props) => {
+  const [value, setValue] = useState(props.defaultValue || "#d1d5d1");
   const [show, setShow] = useState(false);
   const refMenu: any = useRef();
 
-  const posScreen = useMemo(
-    () => ({
+  useEffect(() => {
+    const posElement = refMenu.current.getBoundingClientRect();
+
+    const posScreen = {
       x: 0,
       y: 0,
       height: window.innerHeight,
       width: window.innerWidth,
-    }),
-    []
-  );
+    };
+    let transform = [];
+
+    if (posElement.x < 0) {
+      transform.push("translateX(100%)");
+    } else if (posElement.right > posScreen.width - 10) {
+      transform.push(" translateX(-100%)");
+    }
+
+    if (posElement.top < 0) {
+      transform.push(" translateY(100%)");
+    } else if (posElement.bottom > posScreen.height) {
+      transform.push(`translateY(calc(-100% - ${props.height || 30}px))`);
+    }
+
+    refMenu.current.style.transform = transform;
+  }, [refMenu?.current, props.height]);
 
   /**
    */
   function hiddenDropdownWhenClick() {
     setShow(false);
-    document.removeEventListener('click', handleClick);
+    document.removeEventListener("click", handleClick);
   }
 
   /**
    * @param e
    */
   function handleClick(e: any) {
-    let path = e.path;
+    let { path } = e;
     let show = false;
 
-    path.forEach((item: any) => {
-      if (refMenu.current.childNodes) {
-        refMenu.current.childNodes.forEach((node: any) => {
-          if (node === item) show = true;
-        });
-      }
-    });
+    path &&
+      path.forEach((item: any) => {
+        if (refMenu?.current?.childNodes) {
+          refMenu?.current?.childNodes.forEach((node: any) => {
+            if (node === item) show = true;
+          });
+        }
+      });
 
     if (!show) hiddenDropdownWhenClick();
   }
@@ -93,41 +104,14 @@ export default React.memo((props: Props) => {
      * Hidden menu when you click in out of menu
      */
     if (show) {
-      document.addEventListener('click', handleClick);
+      document.addEventListener("click", handleClick);
     }
-  });
+  }, [show]);
 
   function handleChange(color: string) {
     setValue(color);
     props.onChange(color);
   }
-
-  useEffect(() => {
-    const posElement = refMenu.current.getBoundingClientRect();
-    let transform = '';
-    
-    /*
-     * TODO
-     * Handle element with x
-     */
-    if (posElement.x < 0) {
-      transform += ' translateX(100%)';
-    } else if ((posElement.x + posElement.width) > posScreen.width - 10) {
-      transform +=  ' translateX(-100%)';
-    }
-
-    /*
-     * TODO
-     * Handle element with y
-     */
-    if (posElement.top < 0) {
-      transform += ' translateY(100%)';
-    } else if (posElement.bottom > posScreen.height) {
-      transform += ` translateY(calc(-100% - ${props.height || 30}px))`;
-    }
-
-    refMenu.current.style.transform = transform
-  }, [refMenu?.current, posScreen, props.height]);
 
   return (
     <MainWrap>
@@ -142,4 +126,4 @@ export default React.memo((props: Props) => {
       </MainSelector>
     </MainWrap>
   );
-});
+};
