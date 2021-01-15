@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useMemo } from "react";
+import React, { useState, useEffect, useRef, useMemo, RefObject } from "react";
 import styled from "styled-components";
 import _key from "./util/_key";
 import _t from "./util/_t";
@@ -29,10 +29,17 @@ interface PropsMainSelector {
 const MainSelector = styled.div<PropsMainSelector>`
   position: absolute;
   transition: all 0.1s linear;
-  z-index: ${(props) => (props.show ? "999" : "-1")};
-  opacity: ${(props) => (props.show ? "1" : "0")};
-  transform: ${(props) =>
-    props.show ? `translate(0, 5px)` : `translate(0, -5px)`};
+  transform: translate(0, -5px);
+  z-index: -1;
+  opacity: 0;
+
+  ${({ show }) =>
+    show &&
+    `
+    transform: translate(0, 5px);
+    z-index: 999;
+    opacity: 1;
+  `};
 `;
 
 interface Props {
@@ -41,36 +48,41 @@ interface Props {
   width?: number;
   height?: number;
 }
-export default (props: Props) => {
+function App(props: Props) {
   const [value, setValue] = useState(props.defaultValue || "#d1d5d1");
   const [show, setShow] = useState(false);
-  const refMenu: any = useRef();
-
-  useEffect(() => {
-    const posElement = refMenu.current.getBoundingClientRect();
-
-    const posScreen = {
+  const refMenu = useRef<HTMLDivElement>();
+  const posScreen = useMemo(
+    () => ({
       x: 0,
       y: 0,
       height: window.innerHeight,
       width: window.innerWidth,
-    };
+    }),
+    []
+  );
+
+  useEffect(() => {
+    const posElement = refMenu.current.getBoundingClientRect();
+
     let transform = [];
 
     if (posElement.x < 0) {
       transform.push("translateX(100%)");
     } else if (posElement.right > posScreen.width - 10) {
-      transform.push(" translateX(-100%)");
+      transform.push("translateX(-100%)");
     }
 
     if (posElement.top < 0) {
-      transform.push(" translateY(100%)");
+      transform.push("translateY(100%)");
     } else if (posElement.bottom > posScreen.height) {
       transform.push(`translateY(calc(-100% - ${props.height || 30}px))`);
     }
 
-    refMenu.current.style.transform = transform;
-  }, [refMenu?.current, props.height]);
+    refMenu.current.style.transform = transform.join(" ");
+
+    return () => {};
+  }, [refMenu.current, props.height]);
 
   /**
    */
@@ -106,6 +118,10 @@ export default (props: Props) => {
     if (show) {
       document.addEventListener("click", handleClick);
     }
+
+    return () => {
+      document.removeEventListener("click", handleClick);
+    };
   }, [show]);
 
   function handleChange(color: string) {
@@ -126,4 +142,6 @@ export default (props: Props) => {
       </MainSelector>
     </MainWrap>
   );
-};
+}
+
+export default App;

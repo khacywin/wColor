@@ -8,7 +8,7 @@ import image from '@rollup/plugin-image';
 const packageJson = require("./package.json");
 
 export default {
-  input: "src/App.tsx",
+  input: "src/index.tsx",
   output: [
     {
       file: packageJson.main,

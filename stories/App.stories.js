@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import App from './../src/App';
+import App from './../src';
 
 const Wrap = styled.div`
   margin-top: 80vh;
