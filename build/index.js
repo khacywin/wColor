@@ -659,6 +659,7 @@ const MainSelector = styled__default['default'].div `
   `};
 `;
 function App(props) {
+    var _a;
     const [value, setValue] = React.useState(props.defaultValue || "#d1d5d1");
     const [show, setShow] = React.useState(false);
     const refMenu = React.useRef();
@@ -685,7 +686,7 @@ function App(props) {
         }
         refMenu.current.style.transform = transform.join(" ");
         return () => { };
-    }, [refMenu.current, props.height]);
+    }, [(_a = refMenu === null || refMenu === void 0 ? void 0 : refMenu.current) === null || _a === void 0 ? void 0 : _a.clientHeight, props.height]);
     /**
      */
     function hiddenDropdownWhenClick() {
