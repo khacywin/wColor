@@ -82,7 +82,7 @@ function App(props: Props) {
     refMenu.current.style.transform = transform.join(" ");
 
     return () => {};
-  }, [refMenu.current, props.height]);
+  }, [refMenu?.current?.clientHeight, props.height]);
 
   /**
    */
