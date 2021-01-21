@@ -13,6 +13,6 @@ export default {
 
 export const AppComponent = () => (
   <Wrap>
-    <App onChange={(val) => console.log(val)} />
+    <App onChange={(val) => console.log(val)} defaultValue='#123456'/>
   </Wrap>
 );
